@@ -5,8 +5,8 @@ import java.util.HashMap;
 
 public class MorseLogic {
 
-    protected ArrayList<String> savedMorse = new ArrayList<String>();
-    protected  ArrayList<String> savedLetters = new ArrayList<String>();
+    protected ArrayList<String> hasTranslated = new ArrayList<String>();
+    protected  ArrayList<String> unTranslated = new ArrayList<String>();
     protected int arrayListPosition = 0;
 
 
@@ -103,7 +103,7 @@ public class MorseLogic {
         String[] tempMorseArray = s.split(" ");
 
         for (int i = 0; i < tempMorseArray.length; i++) {
-            savedMorse.add(tempPosition, tempMorseArray[i]);
+            hasTranslated.add(tempPosition, tempMorseArray[i]);
             arrayListPosition++;
 
         }
@@ -112,16 +112,16 @@ public class MorseLogic {
         //Runs input through hashmap to get return values.
         String temp;
 
-        for(int i = 0; i< savedMorse.size(); i++){
-            temp = convertMap(savedMorse.get(i));
-            savedLetters.add(temp);
+        for(int i = 0; i< hasTranslated.size(); i++){
+            temp = convertMap(hasTranslated.get(i));
+            unTranslated.add(temp);
         }
     }
     public String arrayLetterListPrinter(){
         //Prints array list of Letters.
         String printString = "";
-        for(int i = 0; i < savedLetters.size(); i++){
-            printString = savedLetters.get(i) + printString;
+        for(int i = 0; i < unTranslated.size(); i++){
+            printString = unTranslated.get(i) + printString;
         }
         return printString;
     }
@@ -129,8 +129,8 @@ public class MorseLogic {
     public String arrayMorseListPrinter(){
         //Prints array list of morse code.
         String printString = "";
-        for(int i = 0; i < savedMorse.size(); i++){
-            printString = printString + savedMorse.get(i);
+        for(int i = 0; i < hasTranslated.size(); i++){
+            printString = printString + hasTranslated.get(i);
         }
         return printString;
     }
