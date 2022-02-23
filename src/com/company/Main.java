@@ -20,7 +20,7 @@ public class Main {
         System.out.println("9.Quit the program and return to the 9-5.");
         System.out.println("=================================================");
 
-        while(quit==false) {
+        while (quit == false) {
 
 
             x = scan.nextLine();
@@ -32,9 +32,15 @@ public class Main {
                     break;
 
                 case "2":
-                    System.out.println("Printing converted characters!");
-                    System.out.println(morse.arrayLetterListPrinter());
-                    break;
+                    if (morse.isTranslated.size() > 0) {
+                        System.out.println("Printing converted characters!");
+                        System.out.println(morse.arrayLetterListPrinter());
+                        break;
+                    }
+                    else{
+                        System.out.println("There are no saved characters at the moment!");
+                        break;
+                    }
 
                 case "3":
                     System.out.println("Now printing list of available morse code.");
@@ -51,11 +57,17 @@ public class Main {
                     break;
 
                 case "6":
-                    System.out.println("Numbers between 0 and " + (morse.isTranslated.size()-1) + " is available.");
+                    if (morse.isTranslated.size() > 0) {
+                        System.out.println("Numbers between 0 and " + (morse.isTranslated.size() - 1) + " is available.");
+                    }
+                    else{
+                        System.out.println("There is nothing saved yet!");
+                        break;
+                    }
+                    //System.out.println("Numbers between 0 and " + (morse.isTranslated.size() - 1) + " is available.");
                     try {
                         System.out.println(morse.indexGetter(Integer.parseInt(scan.nextLine())));
-                    }
-                    catch (Exception e){
+                    } catch (Exception e) {
                         System.out.println("Incorrect input! Please try again!");
                     }
                     break;
