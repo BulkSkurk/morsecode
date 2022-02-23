@@ -48,7 +48,78 @@ public class MorseTest {
         String actual = morse.arrayLetterListPrinter();
 
         //Assert
-        String expected = "BK";
+        String expected = "B K";
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void testDataRemoverTranslated()
+    //Tests if Data is properly removed from Translated ArrayLists.
+    {
+        //Arrange
+        String morseInputTest = "-*** -*-";
+        MorseLogic morse = new MorseLogic();
+        //Act
+        morse.codeSplitter(morseInputTest);
+        morse.hashListGetter();
+        morse.dataRemover();
+        String actual = morse.arrayLetterListPrinter();
+
+        //Assert
+        String expected = "";
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void testDataRemoverunTranslated()
+    //Tests if Data is properly removed from unTranslated ArrayLists.
+    {
+        //Arrange
+        String morseInputTest = "-*** -*-";
+        MorseLogic morse = new MorseLogic();
+        //Act
+        morse.codeSplitter(morseInputTest);
+        morse.hashListGetter();
+        morse.dataRemover();
+        String actual = morse.arrayMorseListPrinter();
+
+        //Assert
+        String expected = "";
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testIndexPrinter()
+    //Tests if the index printer method prints the correct String.
+    {
+        //Arrange
+        String morseInputTest = "-*** -*-";
+        MorseLogic morse = new MorseLogic();
+        //Act
+        morse.codeSplitter(morseInputTest);
+        morse.hashListGetter();
+        String actual = morse.indexGetter(Integer.parseInt("1"));
+
+        //Assert
+        String expected = "K";
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void testFaultyInput()
+    //Tests if saving is properly done when receiving faulty input resulting in a null value
+            //being returned from the hashmap.
+    {
+        //Arrange
+        String morseInputTest = "-*** ASD";
+        MorseLogic morse = new MorseLogic();
+        //Act
+        morse.codeSplitter(morseInputTest);
+        morse.hashListGetter();
+        String actual = morse.arrayLetterListPrinter();
+
+        //Assert
+        String expected = "B";
+        assertEquals(expected, actual);
+    }
+
+
 }
