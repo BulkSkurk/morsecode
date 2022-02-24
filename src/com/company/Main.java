@@ -27,6 +27,7 @@ public class Main {
             switch (x) {
                 case "1":
                     System.out.println("Please type your chosen morse or alphabet to be converted, separated by spaces!");
+                    System.out.println("Only capital letters separated by spaces are accepted.");
                     morse.codeSplitter(scan.nextLine());
                     morse.hashListGetter();
                     break;
